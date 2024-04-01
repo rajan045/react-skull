@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  
+  pre_build:
+  commands:
+  -cd react-skull
+  -echo Installing source NPM dependencies...
+  - npm install
+       
+  build:
+    commands:
+        # run build script
+        echo Build started on 'date'
+        - npm run build
+     
+artifacts:
+  # include all files required to run the application
+  files:
+  - '**/*'
+  base-directory: 'react-skull/build'
+    # - public/**/*
+    # - src/**/*
+    # - package.json
+    # - appspec.yml
+    # - scripts/**/*
